@@ -1,0 +1,21 @@
+ECHO Python Program Specification
+
+This RFC specifies how to use ECHO Server
+
+INTRODUCTION
+	The ECHO Server is use to revise data
+	after using one of commands below
+
+SERVER BEHAVIOR
+	After using one of the commands server response
+	with name of commands and will be waiting for
+	response of client who must end his sending date
+	by "end of data" sequence. After send one line server
+	response with "\r\n"
+
+COMMANDS
+   	Commands who client can send:
+            LOWER-data will be send as lower characters
+            UPPER-data will be send as upper characters
+            REVERSE-data will be send reverse
+            QUIT-end of connection with server

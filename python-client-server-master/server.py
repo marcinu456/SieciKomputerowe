@@ -1,10 +1,4 @@
 import socket
-#import threading
-
-
-#Client class, new instance created for each connected client
-#Each instance has the socket and address that is associated with items
-#Along with an assigned ID and a name chosen by the client
 class SERVER:
     def __init__(self):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -13,7 +7,7 @@ class SERVER:
 
     
     def promt(self):
-        request = self.connect.recv(80)#.decode()
+        request = self.connect.recv(800)#.decode()
         return request
 
 
@@ -38,35 +32,30 @@ class SERVER:
             message=message[:-5]
             print("message=",message)
             self.connect.send(message[::-1].encode())
-        # while True:
-        #     #print(option)
-        #     data=""
-        #     print("data")
-        #     endline=0
-        #     while not endline:
-        #         print("before")
-        #         lump = self.socket.recv(1024)
-        #         print("after")
-        #         if len(lump):
-        #             if len(data)>=2 and data[-2:] == '\r\n':
-        #                 endline=1
-        #                 data+=lump
-        #                 client.socket.sendall(("testy").encode())
                         
-
     def Menu(self, template):
         print(template.decode())
         if template.decode() == "LOWER":
+            data="Send data who end with 'end of date' Sequence"
+            self.connect.sendall(data.encode())
             self.Response(1)
         elif template.decode() == "UPPER":
+            data="Send data who end with 'end of date' Sequence"
+            self.connect.sendall(data.encode())
             self.Response(2)
         elif template.decode() == "REVERSE":
+            data="Send data who end with 'end of date' Sequence"
+            self.connect.sendall(data.encode())
             self.Response(3)
         elif template.decode() == "QUIT":
             self.connect.close()
             self.newConnections()           
         elif template.decode() == "HELP":
-            data="to jest help"
+            data="""Command:
+            LOWER-data will be send as lower characters
+            UPPER-data will be send as upper characters
+            REVERSE-data will be send reverse
+            QUIT-end of connection"""
             self.connect.sendall(data.encode())
         else:
             data="Invalid input try HELP for command"
