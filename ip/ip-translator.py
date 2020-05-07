@@ -5,8 +5,8 @@
 #ip.append(int(input("ip p4 ")))
 #inpMask = int(input("mask "))
 
-ip = [10,100,200,200]
-inpMask = 22
+ip = [10,1,3,0]
+inpMask = 24
 
 hostnumber = 2**(32-inpMask) - 2
 
@@ -52,9 +52,9 @@ for p in range(0,4):
     else:
         zakr.append(str(netip[p]))
 
-print(f"maska=[{mask[0]}.{mask[1]}.{mask[3]}.{mask[3]}]")
+print(f"maska=[{mask[0]}.{mask[1]}.{mask[2]}.{mask[3]}]")
 #print(antiMask)
-print(f"ip sieci=[{netip[0]}.{netip[1]}.{netip[3]}.{netip[3]}]")
-print(f"rozgłoszeńe=[{rozg[0]}.{rozg[1]}.{rozg[3]}.{rozg[3]}]")
+print(f"ip sieci=[{netip[0]}.{netip[1]}.{netip[2]}.{netip[3]}]")
+print(f"rozgłoszeńe=[{rozg[0]}.{rozg[1]}.{rozg[2]}.{rozg[3]}]")
 print("liczba hostów",hostnumber)
 print("zakres nie działa",zakr)
